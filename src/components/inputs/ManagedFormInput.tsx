@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {SelectableInput} from './SelectableInput';
+import { SelectableInput } from './SelectableInput';
 
 export const ManagedFormInput = (props: any) => {
     const renamedProps = {
@@ -49,16 +49,17 @@ export const ManagedFormInput = (props: any) => {
         onMouseOver: props.onMouseover,
         onMouseUp: props.onMouseup,
         onWheel: props.onWheel,
-        onSelect: props.onSelect        
-    };    
+        onSelect: props.onSelect
+    };
 
-    switch(props.type.toLowerCase()) {
+    let type = props.type ? props.type.toLowerCase() : '';
+    switch (type) {
         case 'checkbox':
         case 'radio':
             return <SelectableInput {...renamedProps} />;
         case 'textarea':
-            return <textarea {...renamedProps} />;      
-        default: 
+            return <textarea {...renamedProps} />;
+        default:
             return <input {...renamedProps} />;
     }
 }; 
